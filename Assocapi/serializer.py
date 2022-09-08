@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import User, Association, Memberassociation, Organization, Post
+from .models import User, Association, Memberassociation, Organization, Post,Contact
 
 # start post
 class PostSerializer(serializers.ModelSerializer):
@@ -11,6 +11,10 @@ class PostSerializer(serializers.ModelSerializer):
 
 # end post
 
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Contact
+        fields=('id', 'first_name', 'last_name','email','subject','message','is_contact_read','created_at','updated_at')
 # start Association
 
 class AssociationSerializer(serializers.ModelSerializer):

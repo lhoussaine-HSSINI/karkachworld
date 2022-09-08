@@ -5,9 +5,9 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 from .serializer import (AssociationAdminSignupSerializer, AssociationSerializer,UserSerializer,
                          GuestSerializer, AssociationMemberSignupSerializer, OrganizationAdminSignupSerializer,
-                         MemberSerializer,OrganizationSerializer,PostSerializer)
+                         MemberSerializer,OrganizationSerializer,PostSerializer,ContactSerializer)
 from rest_framework.authtoken.views import ObtainAuthToken
-from .models import User, Association , Memberassociation , Organization, Post
+from .models import User, Association , Memberassociation , Organization, Post, Contact
 from rest_framework import  generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -16,6 +16,12 @@ from django.contrib.auth import authenticate
 from  rest_framework.permissions import IsAuthenticated, AllowAny
 
 
+# start contact
+class add_contact(viewsets.ModelViewSet):
+    queryset = Contact.objects.all()
+    permission_classes = [AllowAny]
+    serializer_class = ContactSerializer
+# end  contact
 
 # start Post
 class add_post(viewsets.ModelViewSet):

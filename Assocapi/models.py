@@ -118,3 +118,19 @@ class Post(models.Model):
 
      def __str__(self):
          return self.title
+
+
+class Contact(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    is_contact_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField('created at', auto_now_add=True)
+    updated_at = models.DateTimeField('updated at', auto_now=True)
+
+    class Meta:
+        ordering = ('created_at',)
+    def __str__(self):
+        return self.email

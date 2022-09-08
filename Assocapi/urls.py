@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (AssociationAdminSignup,CustomAuthToken,
-                    AssociationMemberSignup ,OrganizationAdminSignup,add_association,add_membre,add_organization, add_post)
+                    AssociationMemberSignup ,OrganizationAdminSignup,add_association,add_membre,add_organization, add_post, add_contact)
 from . import views
 from rest_framework import routers
 from django.conf.urls import include
@@ -10,6 +10,7 @@ router.register('Association', add_association)
 router.register('Member', add_membre)
 router.register('Organization', add_organization)
 router.register('post', add_post)
+router.register('Contact',add_contact)
 
 urlpatterns = [
     path('signup/Aadmin', AssociationAdminSignup.as_view()),
